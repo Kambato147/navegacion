@@ -1,32 +1,43 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 // Pantallas principales
 import HomeScreen from "./screens/HomeScreen";
 import ChatScreen from "./screens/ChatScreen";
-import SettingStack from "./SettingStack";
+import SettingStack from "./screens/SettingStack";
 
 const Tabs = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+// navegacion por botones
+function MyStack() {
+  return (
+    <Stack.Navigator initialRouteName="home">
+      <Stack.Screen name="home" component={HomeScreen} />
+      <Stack.Screen name="settngStack" component={SettingStack} />
+    </Stack.Navigator>
+  );
+}
 
 // navegacion con botones
 function MyTabs() {
   return (
     <Tabs.Navigator
-      initialRouteName="home"
+      initialRouteName="homeScreen"
       screenOptions={{
         tabBarActiveTintColor: "#232323",
       }}
     >
       <Tabs.Screen
-        name="home"
-        component={HomeScreen}
+        name="homeScreen"
+        component={MyStack}
         options={{
-          title: "Inicio",
           headerShown: false,
-          tabBarIcon: (({ color }) => (
-            <MaterialCommunityIcons name="home" size={30} color={color}/>
-          ))
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="home" size={30} color={color} />
+          ),
         }}
       />
       <Tabs.Screen
@@ -35,9 +46,9 @@ function MyTabs() {
         options={{
           title: "Chat",
           tabBarBadge: 6,
-          tabBarIcon: (({ color }) => (
+          tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="chat" size={30} color={color} />
-          ))
+          ),
         }}
       />
     </Tabs.Navigator>
