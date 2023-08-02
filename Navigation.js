@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 // Pantallas principales
@@ -9,7 +9,7 @@ import ChatScreen from "./screens/ChatScreen";
 import SettingStack from "./screens/SettingStack";
 
 const Tabs = createBottomTabNavigator();
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 // navegacion por botones
 function MyStack() {
