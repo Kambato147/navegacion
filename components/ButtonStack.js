@@ -1,5 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { FontAwesome } from "@expo/vector-icons";
 
 const ButtonStack = () => {
   const navigation = useNavigation();
@@ -11,7 +12,7 @@ const ButtonStack = () => {
 
   return (
     <TouchableOpacity style={styles.btn} onPress={goToStack}>
-      <Text style={styles.txt}>+</Text>
+      <FontAwesome name="gear" color="#232323" size={30} />
     </TouchableOpacity>
   );
 };
@@ -22,13 +23,7 @@ const styles = StyleSheet.create({
   btn: {
     width: 30,
     height: 30,
-    backgroundColor: "#232323",
     borderRadius: 8,
-    right: 10,
-  },
-  txt: {
-    textAlign: "center",
-    fontSize: 22,
-    color: "#fff",
+    right: 14,
   },
 });

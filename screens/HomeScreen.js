@@ -22,6 +22,7 @@ export default function HomeScreen() {
     navigation.setOptions({
       headerLargeTitle: true, // solo iOS
       headerTitle: "Home",
+      headerTitleAlign: 'center',
       headerRight: () => <ButtonStack />,
       headerSearchBarOptions: {
         placeholder: "Search",
